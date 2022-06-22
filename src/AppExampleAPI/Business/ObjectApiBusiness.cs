@@ -8,6 +8,8 @@ namespace AppExampleAPI.Business
 {
     public class ObjectApiBusiness : IObjectApi
     {
+        public string ErrorLog { get; private set; }
+
         #region Singleton
         private static ObjectApiBusiness _instance;
 
@@ -39,31 +41,122 @@ namespace AppExampleAPI.Business
             {
                 ObjectBusiness apiBusiness = new ();
                 objectCreated = await apiBusiness.CreateObject(config, objectTab);
+                response.StatusCode = 200;
+                response.Message = "Object created";
             }
             catch(Exception ex)
             {
-
+                ErrorLog = "CreateObject Error: " + ex.Message;
             }
 
             response.Item = objectCreated;
+
             return response.PrepareResult();
         }
 
-        public Task<ObjectTabResponse> GetObjectById(long objectID)
+        public async Task<ObjectTabResponse> DeleteObject(IConfiguration config, long ID)
         {
-            throw new NotImplementedException();
-        }
+            ObjectTabResponse response = new();
+            ObjectTab objectDeleted = null;
 
-        public Task<ObjectTabResponse> GetObjects()
-        {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                ObjectBusiness apiBusiness = new();
+                objectDeleted = await apiBusiness.DeleteObject(config, ID);
+                response.StatusCode = 200;
+                response.Message = $"Object ID {ID} Deleted";
+            }
+            catch (Exception ex)
+            {
+                ErrorLog = "DeleteObject Error: " + ex.Message;
+            }
 
-        public Task<ObjectTabResponse> UpdateObject(ObjectTab objectTab)
-        {
-            throw new NotImplementedException();
+            response.Item = objectDeleted;
+            
+            return response.PrepareResult();
         }
         
+        public async Task<ObjectTabResponse> UpdateObject(IConfiguration config, ObjectTab objectTab)
+        {
+            ObjectTabResponse response = new();
+            ObjectTab objectUpdated = null;
 
+            //TODO: Validade if TypeID exist
+
+            try
+            {
+                ObjectBusiness apiBusiness = new();
+                objectUpdated = await apiBusiness.UpdateObject(config, objectTab);
+                response.StatusCode = 200;
+                response.Message = $"Object Updated";
+            }
+            catch (Exception ex)
+            {
+                ErrorLog = "UpdateObject Error: " + ex.Message;
+            }
+
+            response.Item = objectUpdated;
+            return response.PrepareResult();
+        }
+
+        public async Task<ObjectTabListResponse> GetAllObjects(IConfiguration config)
+        {
+            ObjectTabListResponse response = new();
+            ObjectTabList objectList = null;
+
+            try
+            {
+                ObjectBusiness apiBusiness = new();
+                objectList = await apiBusiness.SelectAllObjects(config);
+                response.StatusCode = 200;
+                response.Message = $"Objects searched";
+            }
+            catch (Exception ex)
+            {
+                ErrorLog = "UpdateObject Error: " + ex.Message;
+            }
+
+            response.Item = objectList;
+            return response.PrepareResult();
+        }
+
+        public async Task<ObjectTabListResponse> GetAllObjectsByName(IConfiguration config, string name)
+        {
+            ObjectTabListResponse response = new();
+            ObjectTabList objectList = null;
+
+            try
+            {
+                ObjectBusiness apiBusiness = new();
+                objectList = await apiBusiness.SelectObjectsByName(config, name);
+                response.StatusCode = 200;
+                response.Message = $"Objects searched";
+            }
+            catch (Exception ex)
+            {
+                ErrorLog = "GetAllObjectsByName Error: " + ex.Message;
+            }
+
+            response.Item = objectList;
+            return response.PrepareResult();
+        }
+
+        public async Task<List<string>> GetObjectsAutoComplete(IConfiguration config, string name)
+        {
+            List<string> listReturn = new List<string>();
+
+            try
+            {
+                ObjectBusiness apiBusiness = new();
+                listReturn = await apiBusiness.SelectObjectsNameAutoComplete(config, name);                
+            }
+            catch (Exception ex)
+            {
+                ErrorLog = "GetObjectsAutoComplete Error: " + ex.Message;
+            }
+
+
+            return listReturn;
+        }
     }
 }
