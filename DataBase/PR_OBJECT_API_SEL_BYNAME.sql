@@ -26,6 +26,8 @@ BEGIN
 		T1.TYPE_ID = T2.ID
 	WHERE
 		T1.[NAME] LIKE '%' + @NAME + '%'
+	ORDER BY
+		[NAME] ASC;
 	
 END
 GO

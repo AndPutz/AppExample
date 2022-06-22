@@ -119,7 +119,7 @@ namespace Infra
             }
 
             if (Connection.State != System.Data.ConnectionState.Open)
-                Connection.Open();
+                Connection.Open();            
         }
 
         public void CloseConnection()

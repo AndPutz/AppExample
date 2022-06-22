@@ -7,7 +7,7 @@ using System.Text;
 namespace AppExampleAPI.Models
 {
     [DataContract] 
-    public class ObjectTabResponse : IEquatable<ObjectTabResponse>
+    public class RelationsTabListResponse : IEquatable<RelationsTabListResponse>
     {
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace AppExampleAPI.Models
         /// Gets or Sets Item
         /// </summary>
         [DataMember(Name = "item")]
-        public ObjectTab Item { get; set; }
+        public RelationsTabList Item { get; set; }
 
         /// <summary>
         /// Returns the JSON string presentation of the object
@@ -76,7 +76,7 @@ namespace AppExampleAPI.Models
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// Returns true if relations are equal
         /// </summary>
         /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
@@ -84,15 +84,15 @@ namespace AppExampleAPI.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ObjectTab)obj);
+            return obj.GetType() == GetType() && Equals((RelationsTabListResponse)obj);
         }
 
         /// <summary>
-        /// Returns true if ObjectTab instances are equal
+        /// Returns true if RelationsTabListResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ObjectTab to be compared</param>
+        /// <param name="other">Instance of RelationsTabListResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ObjectTabResponse other)
+        public bool Equals(RelationsTabListResponse other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -145,12 +145,12 @@ namespace AppExampleAPI.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ObjectTabResponse left, ObjectTab right)
+        public static bool operator ==(RelationsTabListResponse left, ObjectTab right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ObjectTabResponse left, ObjectTab right)
+        public static bool operator !=(RelationsTabListResponse left, ObjectTab right)
         {
             return !Equals(left, right);
         }

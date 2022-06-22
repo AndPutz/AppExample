@@ -7,7 +7,7 @@ using System.Text;
 namespace AppExampleAPI.Models
 {
     [DataContract] 
-    public class ObjectTabResponse : IEquatable<ObjectTabResponse>
+    public class RelationsTabResponse : IEquatable<RelationsTabResponse>
     {
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace AppExampleAPI.Models
         /// Gets or Sets Item
         /// </summary>
         [DataMember(Name = "item")]
-        public ObjectTab Item { get; set; }
+        public RelationsTab Item { get; set; }
 
         /// <summary>
         /// Returns the JSON string presentation of the object
@@ -84,15 +84,15 @@ namespace AppExampleAPI.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ObjectTab)obj);
+            return obj.GetType() == GetType() && Equals((RelationsTab)obj);
         }
 
         /// <summary>
-        /// Returns true if ObjectTab instances are equal
+        /// Returns true if RelationsTab instances are equal
         /// </summary>
-        /// <param name="other">Instance of ObjectTab to be compared</param>
+        /// <param name="other">Instance of RelationsTab to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ObjectTabResponse other)
+        public bool Equals(RelationsTabResponse other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -145,12 +145,12 @@ namespace AppExampleAPI.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ObjectTabResponse left, ObjectTab right)
+        public static bool operator ==(RelationsTabResponse left, RelationsTab right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ObjectTabResponse left, ObjectTab right)
+        public static bool operator !=(RelationsTabResponse left, RelationsTab right)
         {
             return !Equals(left, right);
         }
