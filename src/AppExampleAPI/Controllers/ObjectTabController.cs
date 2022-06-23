@@ -18,7 +18,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpPost]
-        [Route("[controller]")]     
+        [Route("CreateObject")]     
         [SwaggerOperation("CreateObjectTab")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -32,7 +32,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpPut]
-        [Route("[controller]")]
+        [Route("UpdateObject")]
         [SwaggerOperation("UpdateObjectTab")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -46,7 +46,7 @@ namespace AppExampleAPI.Controllers
         }        
 
         [HttpPut]
-        [Route("ObjectTab/{ID}")]
+        [Route("DeleteObject/{ID}")]
         [SwaggerOperation("DeleteObjectTab")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -61,7 +61,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpGet]
-        [Route("AllObjectTab/")]
+        [Route("SelectAllObjects/")]
         [SwaggerOperation("SelectAllObjectTab")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -75,7 +75,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpGet]
-        [Route("ObjectTabByName/{Name}")]
+        [Route("SelectObjectsByName/{Name}")]
         [SwaggerOperation("SelectObjectsTabByName")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -89,7 +89,21 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpGet]
-        [Route("ObjectTabAutoComplete/{Name}")]
+        [Route("GetObjectById/{Id}")]
+        [SwaggerOperation("SelectObjectsTabById")]
+        [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
+        [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
+        [SwaggerResponse(statusCode: 404, type: typeof(ObjectTabResponse), description: "Request processing error")]
+        [AllowAnonymous]
+        public virtual async Task<IActionResult> SelectObjectsTabById([FromRoute][Required] long Id)
+        {
+            var service = new ObjectApiBusiness();
+            var rs = await service.GetObjectById(_config, Id);
+            return new ObjectResult(rs) { StatusCode = rs.StatusCode };
+        }
+
+        [HttpGet]
+        [Route("AutoCompleteObjects/{Name}")]
         [SwaggerOperation("SelectObjectAutoComplete")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]

@@ -1,0 +1,36 @@
+﻿@model WebAppExample.Models.ObjectViewModel
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>    
+</div>
+<div class="mb-3">
+    <label for="txt_ID" class="form-label">ID</label>
+    <input type="text" class="form-control" id="txt_ID" value="@Model.ObjectView.ID" readonly="readonly">
+
+    <label for="txt_Name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="txt_Name" placeholder="Notebook Dell" value="@Model.ObjectView.Name">
+</div>
+<div class="mb-3">
+    <label for="txt_Description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="txt_Description" placeholder="Notebook Dell Windows 11 i7" value="@Model.ObjectView.Description">
+</div>
+<div class="mb-3">
+    <label for="type_select" class="form-label">Type</label>
+    <select class="type_select" aria-label="@Model.ObjectView.TypeDescription">
+        @foreach (var typeItem in Model.ListTypeView)
+        {
+            if(typeItem.ID == Model.ObjectView.TypeId)
+            {
+                <option selected value="@typeItem.ID">@typeItem.Description</option>
+            }
+            else
+            {
+                <option value="@typeItem.ID">@typeItem.Description</option>
+            }
+        }              
+    </select>
+</div>
+
+<button type="submit" class="btn btn-primary mb-3" onclick="">Save</button>
+<a href="/Object/Index" class="btn btn-primary mb-3" >Cancel</a>
+

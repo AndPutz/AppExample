@@ -18,7 +18,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpPost]
-        [Route("[controller]")]     
+        [Route("CreateRelations")]     
         [SwaggerOperation("CreateRelationsTab")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -32,7 +32,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpPut]
-        [Route("[controller]")]
+        [Route("UpdateRelations")]
         [SwaggerOperation("UpdateRelations")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -60,7 +60,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpGet]
-        [Route("AllRelationsTab/")]
+        [Route("SelectAllRelations/")]
         [SwaggerOperation("SelectAllRelationsTab")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -74,7 +74,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpGet]
-        [Route("RelationsTabByName/{Name}")]
+        [Route("SelectRelationsTabByName/{Name}")]
         [SwaggerOperation("SelectRelationsTabByName")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]
@@ -88,7 +88,7 @@ namespace AppExampleAPI.Controllers
         }
 
         [HttpGet]
-        [Route("RelationsTabAutoComplete/{Name}")]
+        [Route("RelationsAutoComplete/{Name}")]
         [SwaggerOperation("SelectRelationsAutoComplete")]
         [SwaggerResponse(statusCode: 200, type: typeof(ObjectTabResponse), description: "Success")]
         [SwaggerResponse(statusCode: 401, type: typeof(ObjectTabResponse), description: "Not Authorized")]

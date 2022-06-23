@@ -1,0 +1,17 @@
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.csproj.AssemblyReference.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.AssemblyInfoInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.AssemblyInfo.cs
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.csproj.CoreCompileInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Business.deps.json
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Business.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Business.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Model.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Repository.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Model.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\bin\Debug\net6.0\WebApp.Repository.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.csproj.CopyComplete
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\refint\WebApp.Business.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\WebApp.Business.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Domain\obj\Debug\net6.0\ref\WebApp.Business.dll

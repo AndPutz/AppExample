@@ -80,19 +80,26 @@ namespace AppExampleAPI.Business
         {
             ObjectTabResponse response = new();
             ObjectTab objectUpdated = null;
-
-            //TODO: Validade if TypeID exist
-
-            try
+            
+            TypeTabList types = await new TypeBusiness().SelectAll(config);
+            if (types.FirstOrDefault(x => x.Id.Equals(objectTab.Type.Id)) == null)
             {
-                ObjectBusiness apiBusiness = new();
-                objectUpdated = await apiBusiness.UpdateObject(config, objectTab);
-                response.StatusCode = 200;
-                response.Message = $"Object Updated";
+                response.StatusCode = 404;
+                response.Message = $"Type not exists";
             }
-            catch (Exception ex)
+            else
             {
-                ErrorLog = "UpdateObject Error: " + ex.Message;
+                try
+                {
+                    ObjectBusiness apiBusiness = new();
+                    objectUpdated = await apiBusiness.UpdateObject(config, objectTab);
+                    response.StatusCode = 200;
+                    response.Message = $"Object Updated";
+                }
+                catch (Exception ex)
+                {
+                    ErrorLog = "UpdateObject Error: " + ex.Message;
+                }
             }
 
             response.Item = objectUpdated;
@@ -138,6 +145,27 @@ namespace AppExampleAPI.Business
             }
 
             response.Item = objectList;
+            return response.PrepareResult();
+        }
+
+        public async Task<ObjectTabResponse> GetObjectById(IConfiguration config, long ID)
+        {
+            ObjectTabResponse response = new();
+            ObjectTab objectItem = null;
+
+            try
+            {
+                ObjectBusiness apiBusiness = new();
+                objectItem = await apiBusiness.SelectObjectsById(config, ID);
+                response.StatusCode = 200;
+                response.Message = $"Objects searched";
+            }
+            catch (Exception ex)
+            {
+                ErrorLog = "GetAllObjectsByName Error: " + ex.Message;
+            }
+
+            response.Item = objectItem;
             return response.PrepareResult();
         }
 

@@ -1,0 +1,77 @@
+﻿@model WebAppExample.Models.ObjectViewModel
+
+@{
+    ViewData["Title"] = "Object Form";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Object Form</h1>    
+</div>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col" style="text-align:right">
+            <label class="form-label">Find Name Objects:</label>
+        </div>  
+        <div class="col">
+            <input type="text" class="form-control" id="txtSearch">
+        </div> 
+        <div class="col">
+            <a href="/Object/Details"><img src="../images/search_black_24dp.png" alt="Search" /></a> 
+            <a href="/Object/Create"><img src="../images/create_black_24dp.png" alt="Create" /></a> 
+        </div> 
+    </div>        
+</div>
+<br /><br />
+
+@if(Model.ListObjectsView.Count > 0)
+{
+    <div class="container" style="border-color:#ced4da; border-style:solid; border-width:1px; border-radius:.25rem">
+        <div class="row" style="border-color:#ced4da; border-style:solid; border-width:1px;">
+            <div class="col">
+                ID
+            </div>
+            <div class="col">
+                Name
+            </div>
+            <div class="col">
+                Description
+            </div>
+            <div class="col">
+                Type
+            </div>
+            <div class="col">
+                Actions
+            </div>
+        </div>  
+    
+        @foreach (var item in Model.ListObjectsView)
+        {
+            <div class="row">
+                <div class="col">
+                    @item.ID
+                </div>
+                <div class="col">
+                    @item.Name
+                </div>
+                <div class="col">
+                    @item.Description
+                </div>
+                <div class="col">
+                    @item.TypeDescription
+                </div>
+                <div class="col">
+                    <a href="/Object/Edit/@item.ID"><img src="../images/edit_black_24dp.png" alt="Edit" /></a>  
+                    <a href="/Object/Delete/@item.ID"><img src="../images/delete_black_24dp.png" alt="Delete" /></a>
+                </div>
+            </div>
+        }        
+    </div>
+}
+else
+{
+    <br />
+    <div class="text-center">
+        <h1 class="display-4">Dont have objects created. Please, add new one.</h1>    
+    </div>
+}

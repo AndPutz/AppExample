@@ -20,24 +20,28 @@ namespace AppExampleAPI.Models
         /// Object Table PK
         /// </summary>
         [DataMember(Name="ObjectID")]
+        [JsonProperty(PropertyName = "ObjectID")]
         public long ID { get; set; }
 
         /// <summary>
         /// Object Name is unique and cant be null
         /// </summary>
         [DataMember(Name = "ObjectName")]
+        [JsonProperty(PropertyName = "ObjectName")]
         public string Name { get; set; }
 
         /// <summary>
         /// Object description
         /// </summary>
         [DataMember(Name = "ObjectDescription")]
+        [JsonProperty(PropertyName = "ObjectDescription")]
         public string? Description { get; set; }
 
         /// <summary>
         /// Object Type is register previously and cant be null
         /// </summary>
         [DataMember(Name = "ObjectType")]
+        [JsonProperty(PropertyName = "ObjectType")]
         public TypeTab Type { get; set; }
 
         /// <summary>

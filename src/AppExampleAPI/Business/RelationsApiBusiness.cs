@@ -96,9 +96,7 @@ namespace AppExampleAPI.Business
                 objectUpdated = relationsTab;
             }
             else
-            {
-                //TODO: Validade if TypeID exist
-
+            {                
                 try
                 {
                     RelationsBusiness apiBusiness = new();

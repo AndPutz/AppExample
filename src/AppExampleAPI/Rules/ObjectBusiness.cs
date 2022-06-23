@@ -95,6 +95,30 @@ namespace AppExampleAPI.Rules
             return objects;
         }
 
+        public async Task<ObjectTab> SelectObjectsById(IConfiguration config, long Id)
+        {
+            ObjectTab objectItem = new();
+
+            SetConnectionString(config);
+
+            SqlDataReader reader = await dbFactory.Instance.ExecuteSelect(connectionString, "PR_OBJECT_API_SEL_BYID", sqlParameters: new List<SqlParameter>()
+            {
+                new SqlParameter("@ID", SqlDbType.BigInt) { Value = Id }
+            });
+
+            if (reader.Read())
+            {
+                objectItem.ID = (long)reader["ID"];
+                objectItem.Name = reader["NAME"].ToString();
+                objectItem.Description = reader["DESCRIPTION"].ToString();
+                objectItem.Type = new TypeTab() { Id = (int)reader["TYPE_ID"], Description = reader["TYPE_DESCRIPTION"].ToString() };              
+            }
+
+            dbFactory.Instance.CloseConnection();
+
+            return objectItem;
+        }
+
         public async Task<List<string>> SelectObjectsNameAutoComplete(IConfiguration config, string Name)
         {
             List<string> listReturn = new();

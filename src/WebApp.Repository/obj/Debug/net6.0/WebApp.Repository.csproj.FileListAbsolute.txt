@@ -1,0 +1,15 @@
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\bin\Debug\net6.0\WebApp.Repository.deps.json
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\bin\Debug\net6.0\WebApp.Repository.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\bin\Debug\net6.0\WebApp.Repository.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\bin\Debug\net6.0\WebApp.Model.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\bin\Debug\net6.0\WebApp.Model.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.csproj.AssemblyReference.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.AssemblyInfoInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.AssemblyInfo.cs
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.csproj.CoreCompileInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.csproj.CopyComplete
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\refint\WebApp.Repository.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\WebApp.Repository.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\WebApp.Repository\obj\Debug\net6.0\ref\WebApp.Repository.dll

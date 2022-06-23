@@ -1,0 +1,12 @@
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\bin\Debug\net6.0\WebApp.Model.deps.json
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\bin\Debug\net6.0\WebApp.Model.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\bin\Debug\net6.0\WebApp.Model.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.csproj.AssemblyReference.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.AssemblyInfoInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.AssemblyInfo.cs
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.csproj.CoreCompileInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\refint\WebApp.Model.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\WebApp.Model.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\Model\obj\Debug\net6.0\ref\WebApp.Model.dll
