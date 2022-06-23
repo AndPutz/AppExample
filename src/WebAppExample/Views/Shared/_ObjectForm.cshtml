@@ -16,7 +16,7 @@
 </div>
 <div class="mb-3">
     <label for="type_select" class="form-label">Type</label>
-    <select class="type_select" aria-label="@Model.ObjectView.TypeDescription">
+    <select class="type_select" aria-label="@Model.ObjectView.TypeDescription" id="sel_type">
         @foreach (var typeItem in Model.ListTypeView)
         {
             if(typeItem.ID == Model.ObjectView.TypeId)
@@ -31,6 +31,6 @@
     </select>
 </div>
 
-<button type="submit" class="btn btn-primary mb-3" onclick="">Save</button>
+<button type="submit" class="btn btn-primary mb-3" id="btnSave">Save</button>
 <a href="/Object/Index" class="btn btn-primary mb-3" >Cancel</a>
 

@@ -11,7 +11,7 @@ namespace WebApp.Business
         #region Singleton
         private static ObjectBusiness _instance;
 
-        public static ObjectBusiness Insance
+        public static ObjectBusiness Instance
         {
             get
             {
@@ -66,6 +66,26 @@ namespace WebApp.Business
             catch (ApiException ex)
             {
                 _logger.Error(ex, $"ObjectBusiness on GetObject, error: {ex.Message}");
+                throw ex;
+            }
+        }
+
+        public ObjectModel Update(ObjectModel item)
+        {            
+            try
+            {
+                ObjectResponse response = ObjectRepository.Instance.Update(item);
+
+                if (response?.StatusCode == (int)HttpStatusCode.OK && response.Item.ID > 0)
+                {
+                    item = response.Item;
+                }
+
+                return item;
+            }
+            catch (ApiException ex)
+            {
+                _logger.Error(ex, $"ObjectBusiness on Update, error: {ex.Message}");
                 throw ex;
             }
         }

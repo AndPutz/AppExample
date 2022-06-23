@@ -40,5 +40,12 @@ namespace WebApp.Repository
             ObjectResponse response = api.GetObjectById(Id);
             return response;
         }
+
+        public ObjectResponse Update(ObjectModel objectModel)
+        {
+            ObjectApi api = new ObjectApi(basePathWebAPI);
+            ObjectResponse response = api.Update(objectModel);
+            return response;
+        }
     }
 }

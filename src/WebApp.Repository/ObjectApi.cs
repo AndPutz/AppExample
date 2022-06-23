@@ -118,5 +118,29 @@ namespace WebApp.Repository
 
             return (ObjectResponse)ApiClient.Deserialize(response.Content, typeof(ObjectResponse), response.Headers);
         }
+
+        public ObjectResponse Update(ObjectModel objectModel)
+        {
+            var path = $"/UpdateObject";
+            path = path.Replace("{format}", "json");
+
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            String postBody = objectModel.ToJson();
+
+            // authentication setting, if any
+            String[] authSettings = new String[] { "api_key" };
+
+            // make the HTTP request
+            RestResponse response = (RestResponse)ApiClient.CallApi(path, Method.Put, queryParams, postBody, headerParams, formParams, authSettings);
+
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException((int)response.StatusCode, "Error calling Update: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException((int)response.StatusCode, "Error calling Update: " + response.ErrorMessage, response.ErrorMessage);
+
+            return (ObjectResponse)ApiClient.Deserialize(response.Content, typeof(ObjectResponse), response.Headers);
+        }
     }
 }

@@ -10,23 +10,28 @@ namespace WebAppExample.Controllers
     {
         // GET: ObjectController
         public ActionResult Index()
+        {            
+            return View(IndexProcess());
+        }
+
+        private ObjectViewModel IndexProcess()
         {
             ObjectViewModel objectView = new ObjectViewModel();
 
-            ObjectList objects = ObjectBusiness.Insance.GetAllObjects();         
+            ObjectList objects = ObjectBusiness.Instance.GetAllObjects();
 
-            objectView.ListObjectsView.AddRange (
-                    from x in objects select new ObjectItemViewModel 
-                    { 
-                        ID = x.ID, 
-                        Name = x.Name, 
-                        Description = x.Description, 
-                        TypeId = x.Type.ID, 
-                        TypeDescription = x.Type.Description 
+            objectView.ListObjectsView.AddRange(
+                    from x in objects
+                    select new ObjectItemViewModel
+                    {
+                        ID = x.ID,
+                        Name = x.Name,
+                        Description = x.Description,
+                        TypeId = x.Type.ID,
+                        TypeDescription = x.Type.Description
                     }
-                ); 
-
-            return View(objectView);
+                );
+            return objectView;
         }
 
         // GET: ObjectController/Details/5
@@ -59,7 +64,7 @@ namespace WebAppExample.Controllers
         // GET: ObjectController/Edit/5
         public ActionResult Edit(long id)
         {
-            ObjectModel item = ObjectBusiness.Insance.GetObject(id);
+            ObjectModel item = ObjectBusiness.Instance.GetObject(id);
             TypeList types = TypeBusiness.Instance.GetAll();
 
             ObjectViewModel viewModel = new ObjectViewModel();
@@ -75,14 +80,15 @@ namespace WebAppExample.Controllers
             return View("~/Views/Shared/_ObjectForm.cshtml", viewModel);
         }
 
-        // POST: ObjectController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ObjectItemViewModel viewModel)
+        // POST: ObjectController/SaveEdit
+        [HttpPost]        
+        public ActionResult SaveEdit(ObjectItemViewModel viewModel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                ObjectBusiness.Instance.Update(new ObjectModel() { ID = viewModel.ID, Name = viewModel.Name, Description = viewModel.Description, Type = new TypeModel() { ID = viewModel.TypeId, Description = "" } });
+
+                return View();
             }
             catch
             {
