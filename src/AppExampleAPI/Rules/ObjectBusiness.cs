@@ -5,30 +5,33 @@ using Infra;
 
 namespace AppExampleAPI.Rules
 {
-    public class ObjectBusiness
+    public class ObjectBusiness : Business.BusinessBase
     {
-        private string connectionString;
 
-        public async Task<ObjectTab> CreateObject(IConfiguration config, ObjectTab objectTab)
+        public override async Task<Entity> CreateObject(IConfiguration config, Entity entity)
         {
-            List<SqlParameter> sqlParameters = GetObjectParameters(objectTab, true);
+            GetInsertObjectParameters insertObjectParameters = new GetInsertObjectParameters();
+
+            List<SqlParameter> sqlParameters = insertObjectParameters.GetEntityParameters(entity);
 
             SetConnectionString(config);
 
-            objectTab.ID = await dbFactory.Instance.Insert(connectionString, "PR_OBJECT_API_INS", sqlParameters);                        
+            entity.Id = await dbFactory.Instance.Insert(connectionString, "PR_OBJECT_API_INS", sqlParameters);
 
-            return objectTab;
+            return entity;
         }
+       
 
-        public async Task<ObjectTab> UpdateObject(IConfiguration config, ObjectTab objectTab)
+        public async Task<Entity> UpdateObject(IConfiguration config, Entity entity)
         {
-            List<SqlParameter> sqlParameters = GetObjectParameters(objectTab, false);
+            GetObjectParameters objectParameters = new GetObjectParameters();
+            List<SqlParameter> sqlParameters = objectParameters.GetEntityParameters(entity);
 
             SetConnectionString(config);
 
             await dbFactory.Instance.ExecuteNonQueryAsync(connectionString, "PR_OBJECT_API_UPD", sqlParameters);
 
-            return objectTab;
+            return entity;
         }
 
         public async Task<ObjectTab> DeleteObject(IConfiguration config, long ID)
@@ -54,7 +57,7 @@ namespace AppExampleAPI.Rules
             {
                 objects.Add(new ObjectTab()
                 {
-                    ID = (long)reader["ID"],
+                    Id = (long)reader["ID"],
                     Description = reader["DESCRIPTION"].ToString(),
                     Name = reader["NAME"].ToString(),
                     Type = new TypeTab() { Id = (int)reader["TYPE_ID"], Description = reader["TYPE_DESCRIPTION"].ToString() }
@@ -82,7 +85,7 @@ namespace AppExampleAPI.Rules
             {
                 objects.Add(new ObjectTab()
                 {
-                    ID = (long)reader["ID"],
+                    Id = (long)reader["ID"],
                     Description = reader["DESCRIPTION"].ToString(),
                     Name = reader["NAME"].ToString(),
                     Type = new TypeTab() { Id = (int)reader["TYPE_ID"], Description = reader["TYPE_DESCRIPTION"].ToString() }
@@ -108,7 +111,7 @@ namespace AppExampleAPI.Rules
 
             if (reader.Read())
             {
-                objectItem.ID = (long)reader["ID"];
+                objectItem.Id = (long)reader["ID"];
                 objectItem.Name = reader["NAME"].ToString();
                 objectItem.Description = reader["DESCRIPTION"].ToString();
                 objectItem.Type = new TypeTab() { Id = (int)reader["TYPE_ID"], Description = reader["TYPE_DESCRIPTION"].ToString() };              
@@ -152,19 +155,23 @@ namespace AppExampleAPI.Rules
             }
         }
 
-        private List<SqlParameter> GetObjectParameters(ObjectTab objectTab, bool inserted)
+        private List<SqlParameter> GetObjectParameters(Entity entity, bool inserted)
         {
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
 
-            sqlParameters.Add(new SqlParameter("@NAME", SqlDbType.VarChar) { Value = objectTab.Name });
-            sqlParameters.Add(new SqlParameter("@DESCRIPTION", SqlDbType.VarChar) { Value = objectTab.Description });
-            sqlParameters.Add(new SqlParameter("@TYPE_ID", SqlDbType.Int) { Value = objectTab.Type.Id });
+            ObjectTab tab = (ObjectTab)entity;
+
+            sqlParameters.Add(new SqlParameter("@NAME", SqlDbType.VarChar) { Value = tab.Name });
+            sqlParameters.Add(new SqlParameter("@DESCRIPTION", SqlDbType.VarChar) { Value = tab.Description });
+            sqlParameters.Add(new SqlParameter("@TYPE_ID", SqlDbType.Int) { Value = tab.Type.Id });
             if (inserted)
                 sqlParameters.Add(new SqlParameter("@ID", SqlDbType.BigInt) { Direction = ParameterDirection.Output });
             else
-                sqlParameters.Add(new SqlParameter("@ID", SqlDbType.BigInt) { Value = objectTab.ID });
+                sqlParameters.Add(new SqlParameter("@ID", SqlDbType.BigInt) { Value = entity.Id });
 
             return sqlParameters;
         }
+
+        
     }
 }

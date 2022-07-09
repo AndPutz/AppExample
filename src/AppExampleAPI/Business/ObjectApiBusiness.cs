@@ -35,7 +35,7 @@ namespace AppExampleAPI.Business
         public async Task<ObjectTabResponse> CreateObject(IConfiguration config, ObjectTab objectTab)
         {
             ObjectTabResponse response = new();
-            ObjectTab objectCreated = null;
+            Entity objectCreated = null;
 
             try
             {
@@ -79,9 +79,9 @@ namespace AppExampleAPI.Business
         public async Task<ObjectTabResponse> UpdateObject(IConfiguration config, ObjectTab objectTab)
         {
             ObjectTabResponse response = new();
-            ObjectTab objectUpdated = null;
+            Entity objectUpdated = new();
             
-            TypeTabList types = await new TypeBusiness().SelectAll(config);
+            TabList types = await new TypeBusiness().SelectAll(config);
             if (types.FirstOrDefault(x => x.Id.Equals(objectTab.Type.Id)) == null)
             {
                 response.StatusCode = 404;

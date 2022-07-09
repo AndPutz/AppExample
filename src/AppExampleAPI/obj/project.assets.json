@@ -387,10 +387,24 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "AppExampleAPI.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/AppExampleAPI.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppExampleAPI.Models.dll": {}
+        }
+      },
       "Infra/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AppExampleAPI.Models": "1.0.0",
           "System.Data.Common": "4.3.0",
           "System.Data.SqlClient": "4.8.3"
         },
@@ -1787,6 +1801,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "AppExampleAPI.Models/1.0.0": {
+      "type": "project",
+      "path": "../AppExampleAPI.Models/AppExampleAPI.Models.csproj",
+      "msbuildProject": "../AppExampleAPI.Models/AppExampleAPI.Models.csproj"
+    },
     "Infra/1.0.0": {
       "type": "project",
       "path": "../Infra/Infra.csproj",
@@ -1795,6 +1814,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AppExampleAPI.Models >= 1.0.0",
       "Infra >= 1.0.0",
       "NLog >= 5.0.1",
       "Newtonsoft.Json >= 13.0.1",
@@ -1840,6 +1860,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Projetos\\Pessoal\\AppExample\\AppExample\\src\\AppExampleAPI.Models\\AppExampleAPI.Models.csproj": {
+              "projectPath": "C:\\Projetos\\Pessoal\\AppExample\\AppExample\\src\\AppExampleAPI.Models\\AppExampleAPI.Models.csproj"
+            },
             "C:\\Projetos\\Pessoal\\AppExample\\AppExample\\src\\Infra\\Infra.csproj": {
               "projectPath": "C:\\Projetos\\Pessoal\\AppExample\\AppExample\\src\\Infra\\Infra.csproj"
             }

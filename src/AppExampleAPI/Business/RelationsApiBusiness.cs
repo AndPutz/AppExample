@@ -37,7 +37,7 @@ namespace AppExampleAPI.Business
             RelationsTabResponse response = new();
             RelationsTab objectCreated = null;
 
-            if (relationsTab.ObjectA.ID.Equals(relationsTab.ObjectB.ID))
+            if (relationsTab.ObjectA.Id.Equals(relationsTab.ObjectB.Id))
             {
                 response.StatusCode = 401;
                 response.Message = "The objects can not be the same";
@@ -89,7 +89,7 @@ namespace AppExampleAPI.Business
             RelationsTabResponse response = new();
             RelationsTab objectUpdated = null;
 
-            if (relationsTab.ObjectA.ID.Equals(relationsTab.ObjectB.ID))
+            if (relationsTab.ObjectA.Id.Equals(relationsTab.ObjectB.Id))
             {
                 response.StatusCode = 401;
                 response.Message = "The objects can not be the same";

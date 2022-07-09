@@ -9,9 +9,9 @@ namespace AppExampleAPI.Rules
     {
         private string connectionString;
 
-        public async Task<TypeTabList> SelectAll(IConfiguration config)
+        public async Task<TabList> SelectAll(IConfiguration config)
         {
-            TypeTabList types = new();
+            TabList types = new();
 
             SetConnectionString(config);
 

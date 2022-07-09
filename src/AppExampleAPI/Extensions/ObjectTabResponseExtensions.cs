@@ -11,12 +11,12 @@ namespace AppExampleAPI.Extensions
                 response.StatusCode = 500;
                 response.Status = ObjectTabResponse.StatusEnum.ErrorEnum;
             }
-            else if (response.Item.ID == -401)
+            else if (response.Item.Id == -401)
             {
                 response.StatusCode = 401;
                 response.Status = ObjectTabResponse.StatusEnum.ErrorEnum;
             }
-            else if (response.Item.ID > 0)
+            else if (response.Item.Id > 0)
             {
                 response.StatusCode = 200;
                 response.Status = ObjectTabResponse.StatusEnum.OKEnum;
@@ -32,7 +32,7 @@ namespace AppExampleAPI.Extensions
                 response.StatusCode = 500;
                 response.Status = ObjectTabListResponse.StatusEnum.ErrorEnum;
             }
-            else if (response.Item[0].ID == -401)
+            else if (response.Item[0].Id == -401)
             {
                 response.StatusCode = 401;
                 response.Status = ObjectTabListResponse.StatusEnum.ErrorEnum;

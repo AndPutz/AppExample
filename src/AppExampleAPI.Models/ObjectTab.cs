@@ -1,17 +1,14 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace AppExampleAPI.Models
 {
-    [DataContract] 
-    public class ObjectTab : IEquatable<ObjectTab>
+    [DataContract]
+    public class ObjectTab : Entity, IEquatable<ObjectTab>
     {
         public ObjectTab()
         {
-            ID = 0;
             Name = string.Empty;
             Type = new TypeTab();
         }
@@ -19,14 +16,17 @@ namespace AppExampleAPI.Models
         /// <summary>
         /// Object Table PK
         /// </summary>
-        [DataMember(Name="ObjectID")]
+        [DataMember(Name = "ObjectID")]
+        [Required]
+        [Key]
         [JsonProperty(PropertyName = "ObjectID")]
-        public long ID { get; set; }
+        public override long Id { get; set; }
 
         /// <summary>
         /// Object Name is unique and cant be null
         /// </summary>
         [DataMember(Name = "ObjectName")]
+        [Required]
         [JsonProperty(PropertyName = "ObjectName")]
         public string Name { get; set; }
 
@@ -42,16 +42,9 @@ namespace AppExampleAPI.Models
         /// </summary>
         [DataMember(Name = "ObjectType")]
         [JsonProperty(PropertyName = "ObjectType")]
-        public TypeTab Type { get; set; }
+        public Entity Type { get; set; }
 
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
+
 
         /// <summary>
         /// Returns true if objects are equal
@@ -77,8 +70,8 @@ namespace AppExampleAPI.Models
 
             return
                 (
-                    ID == other.ID ||
-                    ID.Equals(other.ID)
+                    Id == other.Id ||
+                    Id.Equals(other.Id)
                 ) &&
                 (
                     Name == other.Name ||
@@ -107,7 +100,7 @@ namespace AppExampleAPI.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)                
-                    hashCode = hashCode * 59 + ID.GetHashCode();
+                hashCode = hashCode * 59 + Id.GetHashCode();
                 if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
                 if (Description != null)
@@ -119,7 +112,7 @@ namespace AppExampleAPI.Models
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
         public static bool operator ==(ObjectTab left, ObjectTab right)
         {
@@ -131,8 +124,7 @@ namespace AppExampleAPI.Models
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
-
     }
 }

@@ -65,7 +65,7 @@ namespace AppExampleAPI.Models
         /// Gets or Sets Item
         /// </summary>
         [DataMember(Name = "item")]
-        public TypeTabList Item { get; set; }
+        public TabList Item { get; set; }
 
         /// <summary>
         /// Returns the JSON string presentation of the object
@@ -146,12 +146,12 @@ namespace AppExampleAPI.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(TypeTabListResponse left, TypeTab right)
+        public static bool operator ==(TypeTabListResponse left, Entity right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(TypeTabListResponse left, TypeTab right)
+        public static bool operator !=(TypeTabListResponse left, Entity right)
         {
             return !Equals(left, right);
         }

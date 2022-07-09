@@ -64,7 +64,7 @@ namespace AppExampleAPI.Models
         /// Gets or Sets Item
         /// </summary>
         [DataMember(Name = "item")]
-        public ObjectTab Item { get; set; }
+        public Entity Item { get; set; }
 
         /// <summary>
         /// Returns the JSON string presentation of the object

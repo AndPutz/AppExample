@@ -59,14 +59,14 @@ namespace AppExampleAPI.Rules
                         ID = (long)reader["ID"],
                         ObjectA = new ObjectTab()
                         {
-                            ID = (long)reader["ID_OBJECT_A"],
+                            Id = (long)reader["ID_OBJECT_A"],
                             Name = reader["NAME_A"].ToString(),
                             Description = reader["DESCRIPTION_A"].ToString(),
                             Type = new TypeTab() { Id = (int)reader["TYPE_ID_A"], Description = reader["TYPE_DESCRIPTION_A"].ToString() }
                         },
                         ObjectB = new ObjectTab()
                         {
-                            ID = (long)reader["ID_OBJECT_B"],
+                            Id = (long)reader["ID_OBJECT_B"],
                             Name = reader["NAME_B"].ToString(),
                             Description = reader["DESCRIPTION_B"].ToString(),
                             Type = new TypeTab() { Id = (int)reader["TYPE_ID_B"], Description = reader["TYPE_DESCRIPTION_B"].ToString() }
@@ -103,14 +103,14 @@ namespace AppExampleAPI.Rules
                         ID = (long)reader["ID"],
                         ObjectA = new ObjectTab()
                         {
-                            ID = (long)reader["ID_OBJECT_A"],
+                            Id = (long)reader["ID_OBJECT_A"],
                             Name = reader["NAME_A"].ToString(),
                             Description = reader["DESCRIPTION_A"].ToString(),
                             Type = new TypeTab() { Id = (int)reader["TYPE_ID_A"], Description = reader["TYPE_DESCRIPTION_A"].ToString() }
                         },
                         ObjectB = new ObjectTab()
                         {
-                            ID = (long)reader["ID_OBJECT_B"],
+                            Id = (long)reader["ID_OBJECT_B"],
                             Name = reader["NAME_B"].ToString(),
                             Description = reader["DESCRIPTION_B"].ToString(),
                             Type = new TypeTab() { Id = (int)reader["TYPE_ID_B"], Description = reader["TYPE_DESCRIPTION_B"].ToString() }
@@ -169,8 +169,8 @@ namespace AppExampleAPI.Rules
         {
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
 
-            sqlParameters.Add(new SqlParameter("@ID_OBJECT_A", SqlDbType.BigInt) { Value = relationsTab.ObjectA.ID });
-            sqlParameters.Add(new SqlParameter("@ID_OBJECT_B", SqlDbType.BigInt) { Value = relationsTab.ObjectB.ID });
+            sqlParameters.Add(new SqlParameter("@ID_OBJECT_A", SqlDbType.BigInt) { Value = relationsTab.ObjectA.Id });
+            sqlParameters.Add(new SqlParameter("@ID_OBJECT_B", SqlDbType.BigInt) { Value = relationsTab.ObjectB.Id });
             
             if (inserted)
                 sqlParameters.Add(new SqlParameter("@ID", SqlDbType.BigInt) { Direction = ParameterDirection.Output });

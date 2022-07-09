@@ -36,7 +36,7 @@ namespace AppExampleAPI.Business
         public async Task<TypeTabListResponse> GetAll(IConfiguration config)
         {
             TypeTabListResponse response = new();
-            TypeTabList list = null;
+            TabList list = null;
 
             try
             {

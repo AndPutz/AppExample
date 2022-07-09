@@ -1,0 +1,12 @@
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\bin\Debug\net6.0\AppExampleAPI.Models.deps.json
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\bin\Debug\net6.0\AppExampleAPI.Models.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\bin\Debug\net6.0\AppExampleAPI.Models.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.csproj.AssemblyReference.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.AssemblyInfoInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.AssemblyInfo.cs
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.csproj.CoreCompileInputs.cache
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\refint\AppExampleAPI.Models.dll
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\AppExampleAPI.Models.pdb
+C:\Projetos\Pessoal\AppExample\AppExample\src\AppExampleAPI.Models\obj\Debug\net6.0\ref\AppExampleAPI.Models.dll
